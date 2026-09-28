@@ -1,27 +1,26 @@
-# OpsPilot architecture
+# OpsOS architecture foundation
 
-OpsPilot is an event-driven workflow platform for human-supervised business automation.
+OpsOS is under construction. This repository establishes the ingestion boundary and retains the inherited typed workflow runtime, SQLAlchemy persistence, bounded worker retries, policy and approval gates, dashboard skeleton, and versioned workflow manifests.
 
 ```text
-Next.js dashboard
-        |
-FastAPI API  ----  Postgres
-        |                 |
-Redis queue  ----  worker/runtime
-        |
-provider + connector adapters
+event sources -> ingest -> runtime -> policy -> approvals -> execute -> verify
+                               |          |                                |
+                               +-> context+                           follow-ups
+                                                                          |
+                                                                          v
+                                                                        audit
+                                                                          |
+                                                                          v
+                                                                    web and demo
 ```
 
-The runtime stores an incoming event before dispatching work. A unique
-`(organisation_id, idempotency_key)` constraint prevents duplicate triggers. Each run references
-an immutable workflow version and writes an ordered trace of model calls, tool calls, approvals,
-latency, and estimated cost.
+Current code locations:
 
-The local demo uses SQLite and deterministic sandbox adapters so it is runnable without secrets.
-Docker Compose switches the persistence and queue services to Postgres and Redis. The provider
-boundary supports a deterministic local provider plus explicit OpenAI and Anthropic adapter
-slots.
+- `packages/opsos-ingest/`: canonical event schema, signed receive, deduplication, transforms, in-process delivery, retries, dead letters, and JSONL logs.
+- `apps/api/`: inherited typed API and workflow runtime, SQLAlchemy models, policy and approval logic.
+- `apps/worker/`: inherited Dramatiq worker with bounded retries.
+- `packages/workflows/`: versioned workflow YAML manifests.
+- `apps/web/`: inherited Next.js dashboard skeleton.
+- Context retrieval, verification, follow-up scheduling, buyer-facing dashboard work, and demo fixtures remain planned work.
 
-LLMs are used for interpretation, extraction, classification and drafting. Permissions, threshold
-rules, state transitions, budgets and approval gates stay deterministic in Python.
-
+This document describes repository structure and planned module boundaries. It is not evidence of customer use or an OpsOS deployment.

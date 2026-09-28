@@ -98,15 +98,15 @@ export const runTrace: TraceItem[] = [
   { id: "4", step: "enrich", title: "Company enriched", detail: "70 employees · construction · demo-company-lookup", time: "09:02:15", duration: "118ms", tone: "blue", icon: "globe" },
   { id: "5", step: "score", title: "Opportunity scored 94/100", detail: "Clear need · meaningful volume · explicit purchase intent", time: "09:02:17", duration: "140ms", tone: "green", icon: "chart" },
   { id: "6", step: "draft", title: "Response draft created", detail: "Two candidate meeting slots added", time: "09:02:18", duration: "75ms", tone: "violet", icon: "edit" },
-  { id: "7", step: "approval", title: "Waiting for approval", detail: "External action is paused until a human decides", time: "09:02:19", duration: "—", tone: "amber", icon: "shield" },
+  { id: "7", step: "approval", title: "Waiting for approval", detail: "External action is paused until a human decides", time: "09:02:19", duration: "-", tone: "amber", icon: "shield" },
 ];
 
 export const runs: { id: string; workflow: string; trigger: string; status: RunStatus; time: string; duration: string; score: string }[] = [
   { id: "run_5481", workflow: "Inbound Revenue Agent", trigger: "New sales enquiry", status: "waiting_for_approval", time: "2 min ago", duration: "8.4s", score: "94" },
-  { id: "run_5480", workflow: "Support Escalation Agent", trigger: "Priority ticket", status: "succeeded", time: "12 min ago", duration: "5.1s", score: "—" },
+  { id: "run_5480", workflow: "Support Escalation Agent", trigger: "Priority ticket", status: "succeeded", time: "12 min ago", duration: "5.1s", score: "-" },
   { id: "run_5474", workflow: "AP Exception Agent", trigger: "Invoice received", status: "waiting_for_approval", time: "18 min ago", duration: "4.8s", score: "88" },
   { id: "run_5469", workflow: "Inbound Revenue Agent", trigger: "New sales enquiry", status: "succeeded", time: "32 min ago", duration: "7.7s", score: "82" },
-  { id: "run_5463", workflow: "AP Exception Agent", trigger: "Invoice received", status: "failed", time: "41 min ago", duration: "12.2s", score: "—" },
+  { id: "run_5463", workflow: "AP Exception Agent", trigger: "Invoice received", status: "failed", time: "41 min ago", duration: "12.2s", score: "-" },
 ];
 
 export const integrations = [

@@ -5,4 +5,4 @@ sync_gmail_job = _jobs.sync_gmail_job
 
 
 if __name__ == "__main__":
-    print("OpsPilot worker ready; listening on Redis queue")
+    print("OpsOS worker ready; listening on Redis queue")

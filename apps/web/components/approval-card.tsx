@@ -17,7 +17,7 @@ export function ApprovalCard({ approval, onResolved }: { approval: Approval; onR
     let confirmed = false;
     try {
       const api = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:8000";
-      const response = await fetch(`${api}/api/approvals/${approval.id}/decision`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ decision: next, reason: next === "approved" ? "Approved from OpsPilot dashboard" : "Rejected from OpsPilot dashboard" }) });
+      const response = await fetch(`${api}/api/approvals/${approval.id}/decision`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ decision: next, reason: next === "approved" ? "Approved from OpsOS dashboard" : "Rejected from OpsOS dashboard" }) });
       if (!response.ok) {
         setError("This preview is stale. Refresh the approval inbox to load the current server record.");
       } else {

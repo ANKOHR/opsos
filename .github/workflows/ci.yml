@@ -1,4 +1,4 @@
-name: OpsPilot CI
+name: OpsOS CI
 
 on:
   push:

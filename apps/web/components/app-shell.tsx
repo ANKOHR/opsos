@@ -28,7 +28,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       <aside className="sidebar">
         <div className="brand-row">
           <div className="brand-mark"><Icon name="spark" size={17} /></div>
-          <div><div className="brand-name">OpsPilot</div><div className="brand-subtitle">Command center</div></div>
+          <div><div className="brand-name">OpsOS</div><div className="brand-subtitle">Command center</div></div>
         </div>
 
         <div className="workspace-picker">
