@@ -1,0 +1,6 @@
+OpsOS build, task 1
+
+Test count: 70 passed with pytest.
+Local implementation commit: 940d1bec475e1902ff4e4235705a0bc8610434e3
+
+Summary: The OpsPilot repository foundation is now locally branded as OpsOS and the new opsos-ingest package provides the canonical event schema, deterministic idempotency keys, SQLite event storage, signed webhook receive, dot-path transforms, bounded retry with exponential backoff, dead-letter handling, JSONL execution logs, and a fixture CLI. The README and status documents describe OpsOS as under construction and make no customer, deployment, or real-world validation claims.
